@@ -64,7 +64,7 @@ $foto    = foto_profil();
         <div class="menu">
             <h4>Menu Utama</h4>
             <div class="menu-grid">
-                <a class="menu-item" href="#" data-soon><span>📋</span>Buat Pesanan</a>
+                <a class="menu-item" href="<?= base_url('layanan') ?>"><span>📋</span>Buat Pesanan</a>
                 <a class="menu-item" href="#" data-soon><span>🧾</span>Riwayat Pesanan</a>
                 <a class="menu-item" href="#" data-soon><span>🚚</span>Tracking Laundry</a>
                 <a class="menu-item" href="#" data-soon><span>👛</span>Pembayaran</a>

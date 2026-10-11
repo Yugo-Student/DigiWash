@@ -40,6 +40,13 @@ $routes->group('alamat', ['filter' => 'role:pelanggan'], static function ($route
     $routes->post('hapus/(:num)', 'Pelanggan\AlamatPlg::hapus/$1');
 });
 
+// Layanan (Pelanggan)
+$routes->group('layanan', ['filter' => 'role:pelanggan'], static function ($routes) {
+    $routes->get('',               'Layanan::index');          // Pilih Layanan
+    $routes->get('buat-pesanan',   'Layanan::buatPesanan');    // Form Pesanan
+    $routes->post('ringkasan',     'Layanan::ringkasan');      // Ringkasan (POST dari form)
+});
+
 // Admin
 $routes->group('admin', ['filter' => 'role:admin'], static function ($routes) {
     $routes->get('dashboard', 'Admin\DashboardAdm::index');
