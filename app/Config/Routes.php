@@ -79,3 +79,15 @@ $routes->group('kurir', ['filter' => 'role:kurir'], static function ($routes) {
     $routes->get('password', 'Kurir\AkunKrr::password');
     $routes->post('password/simpan', 'Kurir\AkunKrr::gantiPassword');
 });
+
+// Buat Pesanan (Dilengkapi namespace eksplisit agar dipastikan memanggil App\Controllers\Pelanggan\Pesanan)
+$routes->group('pesanan', ['filter' => 'role:pelanggan', 'namespace' => 'App\Controllers\Pelanggan'], static function ($routes) {
+    $routes->get('pilih-layanan', 'Pesanan::pilihLayanan');
+    $routes->match(['get', 'post'], 'buat-pesanan', 'Pesanan::buatPesanan');
+    $routes->post('ringkasan', 'Pesanan::ringkasan');
+    $routes->post('konfirmasi-pesanan', 'Pesanan::konfirmasiPesanan');
+    $routes->get('pembayaran', 'Pesanan::pembayaran');
+    $routes->post('proses-pembayaran', 'Pesanan::prosesPembayaran');
+    $routes->get('status-pembayaran', 'Pesanan::statusPembayaran');
+    $routes->get('tracking', 'Pesanan::tracking');
+});
